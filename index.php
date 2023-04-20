@@ -1,5 +1,5 @@
 <?php
- require("controleurs/controller.php");
+ require("controller.php");
 
 
 
