@@ -3,12 +3,12 @@
 
 
 function acceuil(){
-    require ("./vues/vue_acceuil.php");
+    require ("vue_acceuil.php");
 }
 
 function afficheerreur($a){
     $msgerreur=$a;
-    require("./vues/erreur.php");
+    require("erreur.php");
    
     
     
@@ -20,7 +20,7 @@ function affichetest(){
    
         $elementpk=print_r(getAllpokemonbd(),true);
         histomodvoir();
-    require("./vues/vue_test.php");
+    require("vue_test.php");
         
     } catch (Exception $e) {
          afficheerreur($e->getMessage());
@@ -38,7 +38,7 @@ function affichemodify(){
             modifiepokemonbd($_POST['nompok'],$_POST['taille'],$_POST['poid']);
         histomod($pok,intval($_POST['taille']),intval($_POST['poid']));
         }
-        require("./vues/modifier.php");
+        require("modifier.php");
          
     } catch (Exception $e) {
          afficheerreur($e->getMessage());
@@ -62,7 +62,7 @@ function afficherpok(){
 
     try {
            $tab=getAlltype();
-           require("./vues/afficher.php");
+           require("afficher.php");
            
     } catch (Exception $e) {
         afficheerreur($e->getMessage());
