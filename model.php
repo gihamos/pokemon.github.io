@@ -185,7 +185,7 @@ function histomod(pokemon $pok,int $taille,int $poids){
     testcrerrxml('./public/xml/histo1.xml');
     
     $xml=new DOMDocument('1.0',"utf-8");
-    $xml->load('./public/xml/histo1.xml');
+    $xml->load('histo1.xml');
     $root = $xml->documentElement;
     $operation=$xml->createElement("operation");
      $operation->appendChild($xml->createElement("type","modify"));
@@ -195,16 +195,16 @@ function histomod(pokemon $pok,int $taille,int $poids){
     $operation->appendChild($desc);
     $root->appendChild($operation);
     if($xml->validate())
-    $xml->save('./public/xml/histo1.xml');
+    $xml->save('histo1.xml');
     else
       throw new Exception("Impossible de valider le document XML");
 }
 
 //fonction retournant un array qui contient l'ensemble des operations d'historisation present dans le ficher xml de type:$type
 function affichehistop(string $type):array{
-    testcrerrxml('./public/xml/histo1.xml');
+    testcrerrxml('histo1.xml');
     $xml=new DOMDocument('1.0',"utf-8");
-    $xml->load('./public/xml/histo1.xml');
+    $xml->load('histo1.xml');
     $root = $xml->documentElement;
     $nodes=$root->getElementsByTagName("operation");
     $tab1=[];
@@ -224,10 +224,10 @@ function affichehistop(string $type):array{
 //fonction qui permet de sauvegarder l'ensemble des actions faites sur les pokemon hors mofification dans le ficher xml
 //si $a est null alors c'est le menu test sinon c'est le menu afficher
 function histomodvoir(int $a=null){
-  testcrerrxml('./public/xml/histo1.xml');
+  testcrerrxml('histo1.xml');
 
     $xml=new DOMDocument('1.0',"utf-8");
-    $xml->load('./public/xml/histo1.xml');
+    $xml->load('histo1.xml');
     $xml->validateOnParse=true;
     $root = $xml->documentElement;
     $operation=$xml->createElement("operation");
@@ -239,7 +239,7 @@ function histomodvoir(int $a=null){
         $operation->appendChild($xml->createElement("desc","Récupérations de tous les Pokemon et leurs type en base."));
         $root->appendChild($operation);
         if($xml->validate())
-        $xml->save('./public/xml/histo1.xml');
+        $xml->save('histo1.xml');
         else
         throw new Exception("Impossible de valider le document XML");
        
