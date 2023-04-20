@@ -13,7 +13,7 @@
 </p>
 <div id="cont"></div>
 <?php
-echo "<script type=\"text/javascript\" src=\"./public/js/pokemon.js\"></script>";
+echo "<script type=\"text/javascript\" src=\"pokemon.js\"></script>";
 $content=ob_get_clean();
 $title="Application-Afficher";
 require("gabarit.php");
